@@ -1,0 +1,26 @@
+<%- include("partial/header"); -%>
+<h1>Home</h1>
+
+<p> <%= startingContent %> </p>
+
+    <% contents.forEach(function(currentContent){ %>
+        <h1> <%= currentContent.title %> </h1>
+        <% let currentPost = currentContent.content; %>
+    <p>
+        <% if(currentPost.length > 100){ %>
+        <%= currentContent.content.substring(0,100) + " ..." %>
+        <% }else{ %>
+        <%= currentPost %>
+        <% } %>
+    </p>
+    <% if(currentPost.length > 100){ %>
+    <a href="/posts/<%=currentContent.title%>">Read more</a>
+    <% } %>
+    <% }); %>
+
+<%- include("partial/footer"); -%>
+
+
+
+
+
